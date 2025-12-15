@@ -1,68 +1,88 @@
+@import "tailwindcss";
+
+/* Enable dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   🌤 LIGHT MODE
+============================================================ */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --background1: #ffffff;
+  --background2: #e4e4e4;
+  --background3: #ffffff;
+  --surface: rgba(255, 255, 255, 0.65);
+  --text: #1a1a1a;
+  --text-muted: #5f656e;
+  --border: rgba(46, 41, 255, 0.35);
+  --brand-start: #ff6b35;
+  --brand-end: #ff3e88;
+  --accent: rgba(255, 60, 110, 0.35);
+  --shadow: 0 8px 30px rgba(0,0,0,0.09);
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* ============================================================
+   🌙 DARK MODE
+============================================================ */
+.dark {
+  --background1: #0e0f17;
+  --background2: #080914;
+  --background3: #04050b;
+  --surface: rgba(18, 18, 28, 0.4);
+  --text: #ffffff;
+  --text-muted: #aab0ba;
+  --border: rgba(255, 60, 110, 0.25);
+  --brand-start: #ff5f3a;
+  --brand-end: #ff2f8a;
+  --accent: rgba(255, 80, 130, 0.4);
+  --shadow: 0 14px 40px rgba(0,0,0,0.55);
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+/* ============================================================
+   ✅ PERFORMANCE-SAFE TRANSITIONS
+   (only where needed)
+============================================================ */
+body,
+button,
+a,
+input,
+textarea {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* ============================================================
+   ✅ TYPOGRAPHY SYSTEM (NO DESIGN CHANGE)
+============================================================ */
+html {
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  line-height: 1.6;
 }
 
-h1 {
-  font-size: 3.2em;
+h1, h2, h3 {
   line-height: 1.1;
+  font-weight: 800;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+p {
+  line-height: 1.6;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* ============================================================
+   🎈 Floating Animation (unchanged)
+============================================================ */
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-floating {
+  animation: floating 6s ease-in-out infinite;
 }
