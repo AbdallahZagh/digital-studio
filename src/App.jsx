@@ -4,6 +4,7 @@ import { Footer } from "./components/layout/Footer.jsx";
 import { Hero } from "./sections/hero/Hero.jsx";
 import { useJquerySmoothScroll } from "./hooks/useJquerySmoothScroll";
 import { registerGsap } from "./animations/gsapConfig";
+import { ScrollToTopButton } from "./components/ui/ScrollToTopButton.jsx";
 
 const Services = lazy(() =>
   import("./sections/services/Services.jsx").then(m => ({ default: m.Services }))
@@ -49,6 +50,7 @@ export default function App() {
       <footer>
         <Footer />
       </footer>
+      <ScrollToTopButton />
     </div>
   );
 }
